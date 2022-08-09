@@ -197,7 +197,7 @@
    padding-top:20px;
    display: flex;
    flex-wrap: wrap;
-   justify-content: left;
+   justify-content: center;
    font-family: udemy sans,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
   /*
    border:1px solid black;
