@@ -8,6 +8,7 @@ let search = document.getElementsByTagName('form')[0];
 
 let i = 0;
 
+// this for branch testing
 //fetch data in a array
 fetch('data.json')
     .then((response) => response.json())
