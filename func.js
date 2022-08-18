@@ -8,7 +8,6 @@ let search = document.getElementsByTagName('form')[0];
 
 let i = 0;
 
-// this for branch testing
 //fetch data in a array
 fetch('data.json')
     .then((response) => response.json())
@@ -78,5 +77,8 @@ function display(courses){
         parent.appendChild(f5);
         cont.appendChild(parent);
     }
-
+    console.log(cont);
 }
+
+
+
