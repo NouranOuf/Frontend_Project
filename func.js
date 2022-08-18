@@ -8,7 +8,6 @@ let search = document.getElementsByTagName('form')[0];
 
 let i = 0;
 
-// this for branch testing
 //fetch data in a array
 fetch('data.json')
     .then((response) => response.json())
@@ -39,16 +38,30 @@ function start(data){
 // load the courses in figures
 // you will create  img / fig caption and append it in figure and then append it in flex container
 function display(courses){
-    console.log(courses.length);
     //clear
-    cont.innerHTML="";
-    for(let i = 0 ; i < courses.length ; i++) {
+   
+  // class row hwa ale hyt7tt feeh al courses wb3den hyt7t fe kool dx
+  // hn7dd kam course fel row 3n taree2 anna n7dd kam col hyakhod al course al wahed 
+    
+    for(let j=0; j < courses.length;j++){
+    // class row hwa ale hyt7tt feeh al courses wb3den hyt7t fe kool dx
+    
+    // hn7dd kam course fel row 3n taree2 anna n7dd kam col hyakhod al course al wahed 
+    //courses
+    let div1 = document.createElement('div'); 
+    div1.setAttribute('class' , 'cards-wrapper');
+
+    //array of objects 
+    for(let i = 0 ; i < courses[j].c.length ; i++) {
         //create tags and set attributes
-        let parent = document.createElement('figure');    
+        let parent = document.createElement('figure'); 
+        parent.setAttribute('class' , 'card');
+
         let nimg = document.createElement('img'); 
-        nimg.src = courses[i].image;
+        nimg.src = courses[j].c[i].image;
         nimg.setAttribute('width', 275);
         nimg.setAttribute('height', 150);
+        
         let f1 = document.createElement('figcaption');
         f1.setAttribute('class' , 'course'); //re-use the css code 
         let f2 = document.createElement('figcaption'); 
@@ -58,11 +71,11 @@ function display(courses){
         let f5 = document.createElement('figcaption');
         f5.setAttribute('class' , 'course');
         // set values   
-        f1.textContent = courses[i].course;
-        f2.textContent = courses[i].inst;  
-        f3.textContent = courses[i].Rating;  
-        f4.textContent = courses[i].users; 
-        f5.textContent = courses[i].price;
+        f1.textContent = courses[j].c[i].course;
+        f2.textContent = courses[j].c[i].inst;  
+        f3.textContent = courses[j].c[i].Rating;  
+        f4.textContent = courses[j].c[i].users; 
+        f5.textContent = courses[j].c[i].price;
         //append
         parent.appendChild(nimg);
         parent.appendChild(f1);
@@ -76,7 +89,24 @@ function display(courses){
         parent.appendChild(f3);
         parent.appendChild(f4);
         parent.appendChild(f5);
-        cont.appendChild(parent);
+        div1.appendChild(parent);
+        
     }
-
+    if(j==0){
+        let c1 = document.getElementById('c1');
+        c1.appendChild(div1);
+    }
+    else if(j==1){
+        let c2 = document.getElementById('c2');
+        c2.appendChild(div1);
+    }
+    else if(j==2){
+        let c3 = document.getElementById('c3');
+        c3.appendChild(div1);
+    }
+    else if(j==3){
+        let c4 = document.getElementById('c4');
+        c4.appendChild(div1);
+    }
+}
 }
